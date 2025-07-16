@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback das Novas Telas</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+    <!-- Robô flutuante -->
+<div class="floating-robot">
+    <img src="assets/images/robot.png" alt="Robozinho" class="robot">
+    <div class="speech-bubble">Olá! Eu sou o Syzinho, envie um feedback pra gente!</div>
+</div>
+
+<div class="container">
+    <div class="header">
+        <h2>Feedback das Novas Telas</h2>
+    </div>
+    
+    <div class="form-content">
+        <form action="https://formsubmit.co/SEUEMAIL" method="POST" class="form-grid">
+            <input type="hidden" name="_subject" value="Novo Feedback de Tela!">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="input-group">
+                <label for="operador">Nome do Operador:</label>
+                <input type="text" id="operador" name="Nome do Operador" required>
+            </div>
+
+            <div class="input-group">
+                <label for="loja">Nome da Loja:</label>
+                <input type="text" id="loja" name="Nome da Loja" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="Email" required>
+            </div>
+
+            <div class="input-group">
+                 <label for="codigo">Código do Operador:</label>
+                 <input type="text" id="codigo" name="Código do Operador" pattern="[0-9]*" inputmode="numeric" required>
+            </div>
+
+            <div class="input-group">
+                <label for="modulo">Módulo:</label>
+                <select id="modulo" name="Módulo" onchange="atualizaSubmenus()" required>
+                    <option value="">Selecione o módulo</option>
+                    <option value="Vendas">Vendas</option>
+                    <option value="Estoque">Estoque</option>
+                    <option value="Receber">Receber</option>
+                    <option value="Pagar">Pagar</option>
+                    <option value="Compras">Compras</option>
+                    <option value="Caixa">Caixa</option>
+                    <option value="Bancário">Bancário</option>
+                    <option value="Configurações">Configurações</option>
+                    <option value="NFe">NFe</option>
+                    <option value="Folha">Folha</option>
+                    <option value="Suporte">Suporte</option>
+                    <option value="Desenvolvimento">Desenvolvimento</option>
+                    <option value="Marketplace">Marketplace</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" name="Categoria" onchange="atualizaSubmenus()" required>
+                    <option value="">Selecione um módulo primeiro</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="submenu">Submenu:</label>
+                <select id="submenu" name="Submenu" required>
+                    <option value="">Selecione uma categoria primeiro</option>
+                </select>
+            </div>
+
+            <div class="input-group full-width">
+                <label for="feedback">Feedback sobre a tela:</label>
+                <textarea id="feedback" name="Feedback" required placeholder="Escreva aqui seu feedback..."></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Enviar Feedback</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

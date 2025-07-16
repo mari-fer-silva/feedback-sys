@@ -1,0 +1,272 @@
+:root {
+  --primary: #2777c2;
+  --primary-dark: #2387e4;
+  --accent: #024e96;
+  --dark: #2d3436;
+  --light: #202020;
+  --gray: #dfe6e9;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: var(--dark);
+  line-height: 1.6;
+  padding: 20px;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-content {
+  padding: 30px;
+  position: relative;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.input-group.full-width {
+  grid-column: span 2;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 15px;
+}
+
+.input-group label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+input, select, textarea {
+  width: 85%;
+  padding: 10px;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  font-size: 0.75rem;
+  transition: var(--transition);
+  background-color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.2);
+  transform: translateY(-2px);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d3436' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 1em;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.button-container {
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+  min-width: 250px;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.6s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+}
+
+button:hover::after {
+  left: 100%;
+}
+
+/* Estilo do robô flutuante */
+.floating-robot {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+.robot {
+    width: 500px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.robot:hover {
+    transform: scale(1.1);
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: max-content;
+    max-width: 200px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.floating-robot:hover .speech-bubble {
+    opacity: 1;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .floating-robot {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .robot {
+        width: 60px;
+    }
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .input-group.full-width {
+    grid-column: span 1;
+  }
+  
+  .button-container {
+    grid-column: span 1;
+  }
+  
+  .container {
+    margin: 20px;
+    border-radius: 12px;
+  }
+  
+  .header {
+    padding: 20px;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
