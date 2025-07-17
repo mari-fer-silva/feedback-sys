@@ -208,12 +208,3 @@ form.addEventListener('submit', function (event) {
     resumoDados.innerHTML = htmlResumo;
     modal.classList.remove('hidden');
 });
-
-//cors teste local
-function doOptions() {
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
-}
