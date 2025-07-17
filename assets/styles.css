@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
 :root {
   --primary: #2777c2;
   --primary-dark: #2387e4;
@@ -192,46 +190,8 @@ button:hover::after {
     animation: float 3s ease-in-out infinite;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3000;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-}
-
-#modal-resumo button {
-    margin-top: 20px;
-    background-color: var(--primary);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-
 .robot {
-    width: 250px;
+    width: 500px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -261,6 +221,52 @@ button:hover::after {
 
 .floating-robot:hover .speech-bubble {
     opacity: 1;
+}
+
+/* Estilos para o modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    min-width: auto;
+}
+
+#resumo-dados {
+    margin: 20px 0;
+    line-height: 1.6;
 }
 
 /* Animação de flutuação */
@@ -310,4 +316,3 @@ button:hover::after {
     width: 100%;
   }
 }
-
