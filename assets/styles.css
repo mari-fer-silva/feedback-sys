@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 :root {
   --primary: #2777c2;
   --primary-dark: #2387e4;
@@ -190,8 +192,46 @@ button:hover::after {
     animation: float 3s ease-in-out infinite;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+#modal-resumo button {
+    margin-top: 20px;
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
 .robot {
-    width: 500px;
+    width: 250px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -270,3 +310,4 @@ button:hover::after {
     width: 100%;
   }
 }
+
