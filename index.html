@@ -14,13 +14,25 @@
     <div class="speech-bubble">Olá! Eu sou o Syzinho, envie um feedback pra gente!</div>
 </div>
 
+
+<!-- Modal de Resumo -->
+<div id="modal-resumo" class="modal hidden">
+    <div class="modal-content">
+        <h3>Resumo do Feedback Enviado</h3>
+        <div id="resumo-dados"></div>
+        <button id="fechar-modal">Fechar</button>
+        <button id="gerar-pdf">Baixar PDF</button>
+    </div>
+</div>
+
+
 <div class="container">
     <div class="header">
         <h2>Feedback das Novas Telas</h2>
     </div>
     
     <div class="form-content">
-        <form action="https://formsubmit.co/SEUEMAIL" method="POST" class="form-grid">
+        <form id="feedback-form" class="form-grid">
             <input type="hidden" name="_subject" value="Novo Feedback de Tela!">
             <input type="hidden" name="_captcha" value="false">
 
@@ -91,5 +103,6 @@
 </div>
 
 <script src="assets/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
