@@ -2,41 +2,76 @@
 //  ESTRUTURA DO SISTEMA (completa)
 // ============================
 const estruturaSistema = {
-    'Vendas': {
-        'CADASTRO': [
-            'Cliente',
-            'Gestão Comercial',
-            'Ordens de Entrega',
-            'Pedido de venda II',
-            'Pessoas',
-            'Romaneios de Entrega',
-            'Romaneios de Entrega II',
-            'Solicitar Encomenda',
-            'Vendas para nota fiscal'
+    'Bancário': {
+        'Cadastro': [
+            'Baixa de Cartões',
+            'Cadastro de Contas Bancárias',
+            'Conciliação BLUE',
+            'Conciliação de Pagamento de Cartões'
         ],
-        'RELATÓRIO': [
-            'Agenda de Entregas',
-            'Analise de Canal Vendas',
-            'Análise Operacional de Vendas',
-            'Contatos E-commerce',
-            'Detalhamento de Romaneio',
-            'Estatística Gestão Comercial',
-            'Indústrias Coligadas',
-            'Mapeamento de Vendas',
-            'Pesquisa de Vendas',
-            'Relatório de Analise de Vendas',
-            'Relatórios da Distribuidora'
+        'Relatório': [
+            'Extratos de Gestão de Contas do Arranjo',
+            'Informe mensal de cartões'
+        ]
+    },
+    'Caixa': {
+        '': [
+            'Abertura de Movimentação Operacional',
+            'Anexar Imagem de Depósito',
+            'Início de Operação Diária',
+            'Movimento de Caixa',
+            'Relatório de Cartões não Conciliados'
+        ]
+    },
+    'Compras': {
+        '': [
+            'Devolução para distribuidora',
+            'Processar Notas Pendentes de Entrada',
+            'Produtos Sob Encomenda',
+            'Relatório de notas compras e devoluções',
+            'Sugestão de Compras'
+        ]
+    },
+    'Configurações': {
+        'Gestão Comercial': [
+            'Cadastros'
         ],
-        'ATUALIZAÇÃO': [
-            'Alterar produto da venda',
-            'Cancelamento de Vendas',
-            'Pedido de venda - Alterar/Cancelar produto',
-            'Solicitação para troca e devolução',
-            'Troca de Mercadoria'
+        '': [
+            'Cadastro de Email',
+            'Cadastro de Nível de Acesso',
+            'Cadastro de Usuários',
+            'Cadastro Operacional CNPJ',
+            'Central de mensagens',
+            'Configuração Ponto de Venda',
+            'Desativação de Loja',
+            'Nota de atualizações',
+            'Ponto de Venda',
+            'Requisitos para Implantação Sysadm Ponto de Venda'
+        ]
+    },
+    'Desenvolvimento': {
+        'Framework': [
+            'Cadastro manual técnico TI',
+            'Gerador de DAO e VO'
+        ],
+        'Programa': [
+            'Cadastro de Programas'
+        ],
+        '': [
+            'Bug Report',
+            'Exemplos Úteis',
+            'FTP',
+            'Gerador de atualização',
+            'Relatório do Sistema'
         ]
     },
     'Estoque': {
-        'CADASTRO': [
+        'Atualização': [
+            'Balanço de Estoque',
+            'Devolução NFe Romaneio CNC',
+            'Verificador de Estoque'
+        ],
+        'Cadastro': [
             'Analise Cadastro de Produto',
             'Cadastro de Detalhe',
             'Cadastro de Medidas de Produtos',
@@ -53,7 +88,7 @@ const estruturaSistema = {
             'Solicitar Reserva Produto',
             'Transportadora'
         ],
-        'RELATÓRIO': [
+        'Relatório': [
             'Analise de Movimento de Notas',
             'Impressão de Romaneio',
             'Lista de Preço Nova',
@@ -64,15 +99,149 @@ const estruturaSistema = {
             'Produtos Pendentes de Devoluções',
             'Produtos Pendentes de Retirada',
             'Rel. Promoções Ativas'
-        ],
-        'ATUALIZAÇÃO': [
-            'Balanço de Estoque',
-            'Devolução NFe Romaneio CNC',
-            'Verificador de Estoque'
         ]
     },
-   
+    'Folha': {
+        'Cadastro': [
+            'Cadastro de Departamento',
+            'Histórico de Pagamento',
+            'Vendedores',
+            'Vendedores II'
+        ],
+        '': [
+            'Cadastro Funcionários'
+        ]
+    },
+    'Marketplace': {
+        'Home&Home': [
+            'Produto Marketplace'
+        ],
+        'Mercosul': [
+            'Ofertas de Vendas',
+            'Gerador de DAO e VO'
+        ]
+    },
+    'NFe': {
+        '': [
+            'Atendimento NFe',
+            'Cadastro Certificado',
+            'Cadastro CFOP',
+            'CFOP do Operador',
+            'Compras com aumento de preços',
+            'Configuração ICMS',
+            'Configuração PIS / COFINS',
+            'Confirmação de recebimento de notas',
+            'Contratar Serviços de parceiros',
+            'Devolução de Nota',
+            'Devolução de Produto de Compra',
+            'Download manual NFe',
+            'Email envio NFe',
+            'Estorno de Emissão de Notas',
+            'Inventário Fiscal - Sped Grupo H',
+            'Leitura de NFe',
+            'Notas de Atendimento Recusadas',
+            'Pedido de Produtos',
+            'Pendências de NFe de Entrada',
+            'Pesquisa de notas fiscais',
+            'Processar Notas de Compra',
+            'Produto da NFE Sem Cadastro',
+            'Serviços Contratados de Parceiros',
+            'Transferência da distribuidora'
+        ]
+    },
+    'Pagar': {
+        'Cadastro': [
+            'Auditoria de agenda de títulos a pagar',
+            'Cadastro de Devedores',
+            'Conta Orçamentária',
+            'Solicitação de Pagamento',
+            'Títulos à Pagar',
+            'Títulos Recusados'
+        ],
+        'Relatório': [
+            'Análise Pagamento Fornecedor',
+            'Baixa de Pagto de NFE Devolução',
+            'Controle de Pagamento de Contratos',
+            'Relatório de Títulos Pagos'
+        ]
+    },
+    'Receber': {
+        'Atualização': [
+            'Correção de cartões',
+            'Correção e Alteração de Cheques'
+        ],
+        'Cadastro': [
+            'Anexar comprovante de cartão',
+            'Cadastro Administradora de Cartões',
+            'Cadastro de Bancos e Agências',
+            'Cadastro de terminal',
+            'Liberação de comprovante anexado',
+            'Liberação Terminal',
+            'Vendas Online'
+        ],
+        'Relatório': [
+            'Demonstrativo de Fundos Período',
+            'Demonstrativo Operacional',
+            'Protocolo de Cartões',
+            'Relação de Cartões',
+            'Relação de cartões BLU',
+            'Relação de Terminal',
+            'Relatório de Franquias'
+        ]
+    },
+    'Suporte': {
+        'Tutoriais': [
+            'Imagens',
+            'Tutorial'
+        ],
+        'Usuários': [
+            'Confirmar/Validar dados',
+            'Informações'
+        ],
+        '': [
+            'Correção Nota Dv Duplicada',
+            'Histórico de login',
+            'Pacotes Disponíveis',
+            'Pesquisa de Programa',
+            'Programa sem manual',
+            'SAF'
+        ]
+    },
+    'Vendas': {
+        'Cadastro': [
+            'Cliente',
+            'Gestão Comercial',
+            'Ordens de Entrega',
+            'Pedido de venda II',
+            'Pessoas',
+            'Romaneios de Entrega',
+            'Romaneios de Entrega II',
+            'Solicitar Encomenda',
+            'Vendas para nota fiscal'
+        ],
+        'Relatório': [
+            'Agenda de Entregas',
+            'Analise de Canal Vendas',
+            'Análise Operacional de Vendas',
+            'Contatos E-commerce',
+            'Detalhamento de Romaneio',
+            'Estatística Gestão Comercial',
+            'Indústrias Coligadas',
+            'Mapeamento de Vendas',
+            'Pesquisa de Vendas',
+            'Relatório de Analise de Vendas',
+            'Relatórios da Distribuidora'
+        ],
+        'Atualização': [
+            'Alterar produto da venda',
+            'Cancelamento de Vendas',
+            'Pedido de venda - Alterar/Cancelar produto',
+            'Solicitação para troca e devolução',
+            'Troca de Mercadoria'
+        ]
+    }
 };
+
 
 // ============================
 //  FUNÇÕES DE VALIDAÇÃO
@@ -116,56 +285,68 @@ function atualizaSubmenus() {
     const categoriaSelect = document.getElementById('categoria');
     const submenuSelect = document.getElementById('submenu');
 
-    // Limpa os selects
     categoriaSelect.innerHTML = '';
-    submenuSelect.innerHTML = '<option value="">Selecione uma categoria primeiro</option>';
+    submenuSelect.innerHTML = '<option value="">-- Selecione --</option>';
 
-    if (modulo && estruturaSistema[modulo]) {
-        // Adiciona opção padrão
-        const defaultOptionCat = document.createElement('option');
-        defaultOptionCat.value = '';
-        defaultOptionCat.text = 'Selecione uma categoria';
-        categoriaSelect.add(defaultOptionCat);
+    if (!modulo || !estruturaSistema[modulo]) {
+        categoriaSelect.style.display = 'none';
+        submenuSelect.style.display = 'none';
+        return;
+    }
 
-        // Preenche categorias
+    const isModuloDireto = Array.isArray(estruturaSistema[modulo]);
+
+    if (isModuloDireto) {
+        categoriaSelect.style.display = 'none';
+        submenuSelect.style.display = 'block';
+
+        submenuSelect.innerHTML = '<option value="">-- Selecione --</option>';
+        estruturaSistema[modulo].forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            option.text = item;
+            submenuSelect.add(option);
+        });
+
+    } else {
+        categoriaSelect.style.display = 'block';
+        submenuSelect.style.display = 'none';  // Oculta inicialmente
+
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.text = '-- Selecione --';
+        categoriaSelect.add(defaultOption);
+
         for (const categoria in estruturaSistema[modulo]) {
             const option = document.createElement('option');
             option.value = categoria;
-            option.text = categoria;
+            option.text = categoria === '' ? 'Geral' : categoria;
             categoriaSelect.add(option);
         }
 
-        // Configura o evento para quando a categoria mudar
-        categoriaSelect.onchange = function() {
-            const categoriaSelecionada = this.value;
-            submenuSelect.innerHTML = '';
+        categoriaSelect.onchange = function () {
+            const categoria = this.value;
+            submenuSelect.innerHTML = '<option value="">-- Selecione --</option>';
 
-            if (categoriaSelecionada && estruturaSistema[modulo][categoriaSelecionada]) {
-                const defaultOptionSub = document.createElement('option');
-                defaultOptionSub.value = '';
-                defaultOptionSub.text = 'Selecione um submenu';
-                submenuSelect.add(defaultOptionSub);
+            const dadosCategoria = estruturaSistema[modulo][categoria];
 
-                estruturaSistema[modulo][categoriaSelecionada].forEach(item => {
+            if (Array.isArray(dadosCategoria) && dadosCategoria.length > 0) {
+                // Categoria com submenus
+                submenuSelect.style.display = 'block';
+                dadosCategoria.forEach(item => {
                     const option = document.createElement('option');
                     option.value = item;
                     option.text = item;
                     submenuSelect.add(option);
                 });
             } else {
-                const optionSub = document.createElement('option');
-                optionSub.value = '';
-                optionSub.text = 'Selecione uma categoria válida';
-                submenuSelect.add(optionSub);
+                // Categoria final sem submenu
+                submenuSelect.style.display = 'none';
             }
         };
-    } else {
-        const optionCat = document.createElement('option');
-        optionCat.value = '';
-        optionCat.text = 'Selecione um módulo primeiro';
-        categoriaSelect.add(optionCat);
     }
 }
+
 
 // ============================
 //  GERADOR DE PDF PERSONALIZADO
