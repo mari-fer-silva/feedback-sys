@@ -191,7 +191,7 @@ button:hover::after {
 }
 
 .robot {
-    width: 500px;
+    width: 250px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
