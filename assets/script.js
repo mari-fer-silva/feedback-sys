@@ -71,7 +71,7 @@ const estruturaSistema = {
             'Verificador de Estoque'
         ]
     },
-    // ... (mantenha o resto da estrutura do sistema como estava)
+   
 };
 
 // ============================
