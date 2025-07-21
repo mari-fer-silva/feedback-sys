@@ -2,211 +2,6 @@
 //  ESTRUTURA DO SISTEMA (completa)
 // ============================
 const estruturaSistema = {
-    'Bancário': {
-        'Cadastro': [
-            'Baixa de Cartões',
-            'Cadastro de Contas Bancárias',
-            'Conciliação BLUE',
-            'Conciliação de Pagamento de Cartões'
-        ],
-        'Relatório': [
-            'Extratos de Gestão de Contas do Arranjo',
-            'Informe mensal de cartões'
-        ]
-    },
-    'Caixa': {
-        '': [
-            'Abertura de Movimentação Operacional',
-            'Anexar Imagem de Depósito',
-            'Início de Operação Diária',
-            'Movimento de Caixa',
-            'Relatório de Cartões não Conciliados'
-        ]
-    },
-    'Compras': {
-        '': [
-            'Devolução para distribuidora',
-            'Processar Notas Pendentes de Entrada',
-            'Produtos Sob Encomenda',
-            'Relatório de notas compras e devoluções',
-            'Sugestão de Compras'
-        ]
-    },
-    'Configurações': {
-        'Gestão Comercial': [
-            'Cadastros'
-        ],
-        '': [
-            'Cadastro de Email',
-            'Cadastro de Nível de Acesso',
-            'Cadastro de Usuários',
-            'Cadastro Operacional CNPJ',
-            'Central de mensagens',
-            'Configuração Ponto de Venda',
-            'Desativação de Loja',
-            'Nota de atualizações',
-            'Ponto de Venda',
-            'Requisitos para Implantação Sysadm Ponto de Venda'
-        ]
-    },
-    'Desenvolvimento': {
-        'Framework': [
-            'Cadastro manual técnico TI',
-            'Gerador de DAO e VO'
-        ],
-        'Programa': [
-            'Cadastro de Programas'
-        ],
-        '': [
-            'Bug Report',
-            'Exemplos Úteis',
-            'FTP',
-            'Gerador de atualização',
-            'Relatório do Sistema'
-        ]
-    },
-    'Estoque': {
-        'Atualização': [
-            'Balanço de Estoque',
-            'Devolução NFe Romaneio CNC',
-            'Verificador de Estoque'
-        ],
-        'Cadastro': [
-            'Analise Cadastro de Produto',
-            'Cadastro de Detalhe',
-            'Cadastro de Medidas de Produtos',
-            'Cadastro de Promoção Líquida TIPO 1',
-            'Cadastro de Promoções',
-            'Cadastro de Show Room',
-            'Fornecedores',
-            'Guia de Atendimento',
-            'Marca por Loja',
-            'Produto',
-            'Produtos com Defeito',
-            'Reserva para transferências de produtos',
-            'Solicitação de Produtos',
-            'Solicitar Reserva Produto',
-            'Transportadora'
-        ],
-        'Relatório': [
-            'Analise de Movimento de Notas',
-            'Impressão de Romaneio',
-            'Lista de Preço Nova',
-            'Mapa de Estoque',
-            'Movimento de Estoque',
-            'Produtos com Defeito',
-            'ProduTos não movimentados',
-            'Produtos Pendentes de Devoluções',
-            'Produtos Pendentes de Retirada',
-            'Rel. Promoções Ativas'
-        ]
-    },
-    'Folha': {
-        'Cadastro': [
-            'Cadastro de Departamento',
-            'Histórico de Pagamento',
-            'Vendedores',
-            'Vendedores II'
-        ],
-        '': [
-            'Cadastro Funcionários'
-        ]
-    },
-    'Marketplace': {
-        'Home&Home': [
-            'Produto Marketplace'
-        ],
-        'Mercosul': [
-            'Ofertas de Vendas',
-            'Gerador de DAO e VO'
-        ]
-    },
-    'NFe': {
-        '': [
-            'Atendimento NFe',
-            'Cadastro Certificado',
-            'Cadastro CFOP',
-            'CFOP do Operador',
-            'Compras com aumento de preços',
-            'Configuração ICMS',
-            'Configuração PIS / COFINS',
-            'Confirmação de recebimento de notas',
-            'Contratar Serviços de parceiros',
-            'Devolução de Nota',
-            'Devolução de Produto de Compra',
-            'Download manual NFe',
-            'Email envio NFe',
-            'Estorno de Emissão de Notas',
-            'Inventário Fiscal - Sped Grupo H',
-            'Leitura de NFe',
-            'Notas de Atendimento Recusadas',
-            'Pedido de Produtos',
-            'Pendências de NFe de Entrada',
-            'Pesquisa de notas fiscais',
-            'Processar Notas de Compra',
-            'Produto da NFE Sem Cadastro',
-            'Serviços Contratados de Parceiros',
-            'Transferência da distribuidora'
-        ]
-    },
-    'Pagar': {
-        'Cadastro': [
-            'Auditoria de agenda de títulos a pagar',
-            'Cadastro de Devedores',
-            'Conta Orçamentária',
-            'Solicitação de Pagamento',
-            'Títulos à Pagar',
-            'Títulos Recusados'
-        ],
-        'Relatório': [
-            'Análise Pagamento Fornecedor',
-            'Baixa de Pagto de NFE Devolução',
-            'Controle de Pagamento de Contratos',
-            'Relatório de Títulos Pagos'
-        ]
-    },
-    'Receber': {
-        'Atualização': [
-            'Correção de cartões',
-            'Correção e Alteração de Cheques'
-        ],
-        'Cadastro': [
-            'Anexar comprovante de cartão',
-            'Cadastro Administradora de Cartões',
-            'Cadastro de Bancos e Agências',
-            'Cadastro de terminal',
-            'Liberação de comprovante anexado',
-            'Liberação Terminal',
-            'Vendas Online'
-        ],
-        'Relatório': [
-            'Demonstrativo de Fundos Período',
-            'Demonstrativo Operacional',
-            'Protocolo de Cartões',
-            'Relação de Cartões',
-            'Relação de cartões BLU',
-            'Relação de Terminal',
-            'Relatório de Franquias'
-        ]
-    },
-    'Suporte': {
-        'Tutoriais': [
-            'Imagens',
-            'Tutorial'
-        ],
-        'Usuários': [
-            'Confirmar/Validar dados',
-            'Informações'
-        ],
-        '': [
-            'Correção Nota Dv Duplicada',
-            'Histórico de login',
-            'Pacotes Disponíveis',
-            'Pesquisa de Programa',
-            'Programa sem manual',
-            'SAF'
-        ]
-    },
     'Vendas': {
         'Cadastro': [
             'Cliente',
@@ -239,9 +34,288 @@ const estruturaSistema = {
             'Solicitação para troca e devolução',
             'Troca de Mercadoria'
         ]
+    },
+    'Estoque': {
+        'Cadastro': [
+            'Analise Cadastro de Produto',
+            'Cadastro de Detalhe',
+            'Cadastro de Medidas de Produtos',
+            'Cadastro de Promoção Líquida TIPO 1',
+            'Cadastro de Promoções',
+            'Cadastro de Show Room',
+            'Fornecedores',
+            'Guia de Atendimento',
+            'Marca por Loja',
+            'Produto',
+            'Produtos com Defeito',
+            'Reserva para transferências de produtos',
+            'Solicitação de Produtos',
+            'Solicitar Reserva Produto',
+            'Transportadora'
+        ],
+        'Relatório': [
+            'Analise de Movimento de Notas',
+            'Impressão de Romaneio',
+            'Lista de Preço Nova',
+            'Mapa de Estoque',
+            'Movimento de Estoque',
+            'Produtos com Defeito',
+            'ProduTos não movimentados',
+            'Produtos Pendentes de Devoluções',
+            'Produtos Pendentes de Retirada',
+            'Rel. Promoções Ativas'
+        ],
+        'Atualização': [
+            'Balanço de Estoque',
+            'Devolução NFe Romaneio CNC',
+            'Verificador de Estoque'
+        ]
+    },
+    'Receber': {
+        'Cadastro': [
+            'Anexar comprovante de cartão',
+            'Cadastro Administradora de Cartões',
+            'Cadastro de Bancos e Agências',
+            'Cadastro de terminal',
+            'Liberação de comprovante anexado',
+            'Liberação Terminal',
+            'Vendas Online'
+        ],
+        'Relatório': [
+            'Demonstrativo de Fundos Período',
+            'Demonstrativo Operacional',
+            'Protocolo de Cartões',
+            'Relação de Cartões',
+            'Relação de cartões BLU',
+            'Relação de Terminal',
+            'Relatório de Franquias'
+        ],
+        'Atualização': [
+            'Correção de cartões',
+            'Correção e Alteração de Cheques'
+        ]
+    },
+    'Pagar': {
+        'Cadastro': [
+            'Auditoria de agenda de títulos a pagar',
+            'Cadastro de Devedores',
+            'Conta Orçamentária',
+            'Solicitação de Pagamento',
+            'Títulos à Pagar',
+            'Títulos Recusados'
+        ],
+        'Relatório': [
+            'Análise Pagamento Fornecedor',
+            'Baixa de Pagto de NFE Devolução',
+            'Controle de Pagamento de Contratos',
+            'Relatório de Títulos Pagos'
+        ]
+    },
+    'Compras': [
+        'Devolução para distribuidora',
+        'Processar Notas Pendentes de Entrada',
+        'Produtos Sob Encomenda',
+        'Relatório de notas compras e devoluções',
+        'Sugestão de Compras'
+    ],
+    'Caixa': [
+        'Abertura de Movimentação Operacional',
+        'Anexar Imagem de Depósito',
+        'Início de Operação Diária',
+        'Movimento de Caixa',
+        'Relatório de Cartões não Conciliados'
+    ],
+    'Bancário': {
+        'Cadastro': [
+            'Baixa de Cartões',
+            'Cadastro de Contas Bancárias',
+            'Conciliação BLUE',
+            'Conciliação de Pagamento de Cartões'
+        ],
+        'Relatório': [
+            'Extratos de Gestão de Contas do Arranjo',
+            'Informe mensal de cartões'
+        ]
+    },
+    'Configurações': {
+        'Gestão Comercial': [
+            'Cadastros'
+        ],
+        '': [
+            'Cadastro de Email',
+            'Cadastro de Nível de Acesso',
+            'Cadastro de Usuários',
+            'Cadastro Operacional CNPJ',
+            'Central de mensagens',
+            'Configuração Ponto de Venda',
+            'Desativação de Loja',
+            'Nota de atualizações',
+            'Ponto de Venda',
+            'Requisitos para Implantação Sysadm Ponto de Venda'
+        ]
+    },
+    'NFe': [
+        'Atendimento NFe',
+        'Cadastro Certificado',
+        'Cadastro CFOP',
+        'CFOP do Operador',
+        'Compras com aumento de preços',
+        'Configuração ICMS',
+        'Configuração PIS / COFINS',
+        'Confirmação de recebimento de notas',
+        'Contratar Serviços de parceiros',
+        'Devolução de Nota',
+        'Devolução de Produto de Compra',
+        'Download manual NFe',
+        'Email envio NFe',
+        'Estorno de Emissão de Notas',
+        'Inventário Fiscal - Sped Grupo H',
+        'Leitura de NFe',
+        'Notas de Atendimento Recusadas',
+        'Pedido de Produtos',
+        'Pendências de NFe de Entrada',
+        'Pesquisa de notas fiscais',
+        'Processar Notas de Compra',
+        'Produto da NFE Sem Cadastro',
+        'Serviços Contratados de Parceiros',
+        'Transferência da distribuidora'
+    ],
+    'Folha': {
+        'Cadastro': [
+            'Cadastro de Departamento',
+            'Histórico de Pagamento',
+            'Vendedores',
+            'Vendedores II'
+        ],
+        '': [
+            'Cadastro Funcionários'
+        ]
+    },
+    'Suporte': {
+        'Tutoriais': [
+            'Imagens',
+            'Tutorial'
+        ],
+        'Usuários': [
+            'Confirmar/Validar dados',
+            'Informações'
+        ],
+        '': [
+            'Correção Nota Dv Duplicada',
+            'Histórico de login',
+            'Pacotes Disponíveis',
+            'Pesquisa de Programa',
+            'Programa sem manual',
+            'SAF'
+        ]
+    },
+    'Desenvolvimento': {
+        'Programa': [
+            'Cadastro de Programas'
+        ],
+        'Framework': [
+            'Cadastro manual técnico TI',
+            'Gerador de DAO e VO'
+        ],
+        '': [
+            'Bug Report',
+            'Exemplos Úteis',
+            'FTP',
+            'Gerador de atualização',
+            'Relatório do Sistema'
+        ]
+    },
+    'Marketplace': {
+        'Home&Home': [
+            'Produto Marketplace'
+        ],
+        'Mercosul': [
+            'Ofertas de Vendas',
+            'Gerador de DAO e VO'
+        ]
     }
 };
 
+// FUNÇÃO ATUALIZADA
+function atualizaSubmenus() {
+    const modulo = document.getElementById('modulo').value;
+    const categoriaGroup = document.querySelector('.input-group:nth-child(6)'); // Grupo da categoria
+    const submenuGroup = document.querySelector('.input-group:nth-child(7)'); // Grupo do submenu
+
+    // Resetar e ocultar inicialmente
+    document.getElementById('categoria').innerHTML = '<option value="N/A">N/A</option>';
+    document.getElementById('submenu').innerHTML = '<option value="">-- Selecione --</option>';
+    
+    if (!modulo) {
+        categoriaGroup.style.display = 'none';
+        submenuGroup.style.display = 'none';
+        return;
+    }
+
+    const moduloData = estruturaSistema[modulo];
+    
+    if (Array.isArray(moduloData)) {
+        // Módulo SEM categorias (itens diretos no submenu)
+        categoriaGroup.style.display = 'none';
+        submenuGroup.style.display = 'block';
+        
+        // Preenche submenu com itens diretos
+        const submenuSelect = document.getElementById('submenu');
+        submenuSelect.innerHTML = '<option value="">-- Selecione --</option>';
+        
+        moduloData.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            option.text = item;
+            submenuSelect.add(option);
+        });
+        
+    } else {
+        // Módulo COM categorias
+        categoriaGroup.style.display = 'block';
+        const categoriaSelect = document.getElementById('categoria');
+        categoriaSelect.innerHTML = '<option value="">-- Selecione --</option>';
+        
+        // Preenche categorias
+        for (const categoria in moduloData) {
+            const option = document.createElement('option');
+            option.value = categoria;
+            option.text = categoria;
+            categoriaSelect.add(option);
+        }
+        
+        // Atualiza submenus quando categoria muda
+        categoriaSelect.onchange = function() {
+            const categoria = this.value;
+            const submenuSelect = document.getElementById('submenu');
+            submenuSelect.innerHTML = '<option value="N/A">N/A</option>';
+            
+            if (categoria && moduloData[categoria]) {
+                submenuGroup.style.display = 'block';
+                moduloData[categoria].forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item;
+                    option.text = item;
+                    submenuSelect.add(option);
+                });
+            } else {
+                submenuGroup.style.display = 'none';
+            }
+        };
+        
+        categoriaSelect.dispatchEvent(new Event('change'));
+    }
+}
+
+// NO ENVIO PARA EXCEL (ajuste no objeto de dados)
+const dados = {
+    modulo: document.getElementById('modulo').value,
+    categoria: document.getElementById('categoria').style.display === 'none' ? 
+               'N/A' : document.getElementById('categoria').value,
+    submenu: document.getElementById('submenu').style.display === 'none' ? 
+             'N/A' : document.getElementById('submenu').value,
+    // ... outros campos
+};
 
 // ============================
 //  FUNÇÕES DE VALIDAÇÃO
@@ -510,7 +584,7 @@ async function enviarParaPlanilha(dados) {
 }
 
 // ============================
-//  CONFIGURAÇÃO DO MODAL E FORMULÁRIO
+//  CONFIGURAÇÃO DO MODAL E FORMULÁRIO (VERSÃO COMPLETA)
 // ============================
 function configurarModal() {
     const form = document.getElementById('feedback-form');
@@ -551,31 +625,35 @@ function configurarModal() {
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
 
+        // Coleta TODOS os dados do formulário
         const dados = {
-            loja: document.getElementById('loja').value,
-            codigo: document.getElementById('codigo').value,
             nome: document.getElementById('operador').value,
+            loja: document.getElementById('loja').value,
             email: document.getElementById('email').value,
+            codigo: document.getElementById('codigo').value,
             modulo: document.getElementById('modulo').value,
-            categoria: document.getElementById('categoria').value,
-            submenu: document.getElementById('submenu').value,
+            categoria: document.getElementById('categoria').value || 'N/A', // Mostra N/A se vazio
+            submenu: document.getElementById('submenu').value || 'N/A',     // Mostra N/A se vazio
             feedback: document.getElementById('feedback').value
         };
 
         try {
             await enviarParaPlanilha(dados);
             
-            // Prepara o resumo para o modal
+            // Prepara o resumo COMPLETO para o modal
             let htmlResumo = `
                 <h2 style="color: var(--primary); margin-bottom: 15px;">Feedback Enviado com Sucesso!</h2>
                 <p>Seu feedback foi registrado com sucesso. Agradecemos pela contribuição!</p>
                 
                 <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary);">
-                    <p><strong>Resumo:</strong></p>
-                    <p><strong>Nome:</strong> ${dados.nome}</p>
-                    <p><strong>Loja:</strong> ${dados.loja}</p>
+                    <p><strong>Nome do Operador:</strong> ${dados.nome}</p>
+                    <p><strong>E-mail:</strong> ${dados.email}</p>
+                    <p><strong>Nome da Loja:</strong> ${dados.loja}</p>
+                    <p><strong>Código do Operador:</strong> ${dados.codigo}</p>
                     <p><strong>Módulo:</strong> ${dados.modulo}</p>
                     <p><strong>Categoria:</strong> ${dados.categoria}</p>
+                    <p><strong>Submenu:</strong> ${dados.submenu}</p>
+                    <p><strong>Feedback sobre a tela:</strong> ${dados.feedback}</p>
                 </div>
                 
                 <p style="font-size: 0.9rem; color: #666;">Você pode baixar um comprovante em PDF usando o botão abaixo.</p>
