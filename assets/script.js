@@ -371,108 +371,158 @@ function atualizaSubmenus() {
 //  PDF
 // ============================
 function gerarPDFPersonalizado(dados) {
+  if (!window.jspdf || !window.jspdf.jsPDF) {
+    alert('Biblioteca jsPDF não carregada.');
+    return;
+  }
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
+  // Layout
   const margin = 15;
-  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageWidth  = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const contentWidth = pageWidth - margin * 2;
+  const lineH = 7;
+  const footerY = pageHeight - 15;
 
-  const primaryColor = [39, 119, 194];
-  const accentColor = [2, 78, 150];
-  const lightGray = [245, 245, 245];
+  // Colunas: rótulo e valor (fixo pra não grudar)
+  const labelX = margin;
+  const valueX = margin + 35; // <- coluna de valores
+  const valueXDetails = margin + 35;
 
-  // Cabeçalho
-  doc.setFillColor(...primaryColor);
-  doc.rect(0, 0, pageWidth, 40, 'F');
-  doc.setFontSize(22);
-  doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.text('FEEDBACK DO SISTEMA', pageWidth / 2, 25, { align: 'center' });
-  doc.setFontSize(10);
-  const agora = new Date();
-  const dataHora = agora.toLocaleDateString('pt-BR') + ' às ' + agora.toLocaleTimeString('pt-BR');
-  doc.text(`Gerado em: ${dataHora}`, pageWidth - margin - 5, 35, { align: 'right' });
+  // Cores
+  const primary = [39,119,194];
+  const accent  = [2,78,150];
+  const light   = [245,245,245];
 
-  // Dados do operador
-  let yPos = 55;
-  doc.setFontSize(14);
-  doc.setTextColor(...primaryColor);
-  doc.text('DADOS DO OPERADOR', margin, yPos);
-  doc.setDrawColor(...accentColor);
-  doc.setLineWidth(0.5);
-  doc.line(margin, yPos + 3, margin + 60, yPos + 3);
-  yPos += 10;
+  const val = (v, fb='—') => (v && String(v).trim() ? String(v) : fb);
+  const valNA = (v) => (v && String(v).trim() ? String(v) : 'N/A');
 
-  doc.setFontSize(11);
-  doc.setTextColor(0, 0, 0);
-  doc.setFont('helvetica', 'normal');
-  [
-    { label: 'Nome:', value: dados.nome },
-    { label: 'Loja:', value: dados.loja },
-    { label: 'E-mail:', value: dados.email },
-    { label: 'Código:', value: dados.codigo }
-  ].forEach(item => {
-    doc.setFont('helvetica', 'bold'); doc.text(item.label, margin, yPos);
-    doc.setFont('helvetica', 'normal'); doc.text(item.value || '—', margin + 20, yPos);
-    yPos += 7;
-  });
+  function header() {
+    doc.setFillColor(...primary);
+    doc.rect(0, 0, pageWidth, 40, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(22);
+    doc.setTextColor(255,255,255);
+    doc.text('FEEDBACK DO SISTEMA', pageWidth/2, 25, {align:'center'});
 
-  yPos += 10;
-
-  // Detalhes do feedback
-  doc.setFontSize(14);
-  doc.setTextColor(...primaryColor);
-  doc.text('DETALHES DO FEEDBACK', margin, yPos);
-  doc.setDrawColor(...accentColor);
-  doc.line(margin, yPos + 3, margin + 70, yPos + 3);
-  yPos += 10;
-
-  [
-    { label: 'Plataforma:', value: dados.plataforma },
-    { label: 'Módulo:', value: dados.modulo },
-    { label: 'Categoria:', value: dados.categoria },
-    { label: 'Submenu:', value: dados.submenu }
-  ].forEach(item => {
-    doc.setFont('helvetica', 'bold'); doc.text(item.label, margin, yPos);
-    doc.setFont('helvetica', 'normal'); doc.text(item.value || 'N/A', margin + 25, yPos);
-    yPos += 7;
-  });
-
-  yPos += 10;
-
-  // Texto do feedback
-  doc.setFontSize(14);
-  doc.setTextColor(...primaryColor);
-  doc.text('FEEDBACK', margin, yPos);
-  doc.setDrawColor(...accentColor);
-  doc.line(margin, yPos + 3, margin + 40, yPos + 3);
-  yPos += 10;
-
-  doc.setFillColor(...lightGray);
-  const splitText = doc.splitTextToSize(dados.feedback || '', contentWidth - 10);
-  const feedbackHeight = Math.max(6 * Math.ceil((dados.feedback || '').length / 100), splitText.length * 6);
-  doc.rect(margin, yPos - 3, contentWidth, feedbackHeight + 10, 'F');
-  doc.setFontSize(11);
-  doc.setTextColor(0, 0, 0);
-  doc.text(splitText, margin + 5, yPos);
-
-  // Rodapé
-  doc.setFontSize(10);
-  doc.setTextColor(100, 100, 100);
-  doc.text('© ' + new Date().getFullYear() + ' - SYSADMCOM', pageWidth / 2, pageHeight - 15, { align: 'center' });
-
-  // Número de página
-  const pageCount = doc.internal.getNumberOfPages();
-  for (let i = 1; i <= pageCount; i++) {
-    doc.setPage(i);
-    doc.setTextColor(150, 150, 150);
-    doc.text(`Página ${i} de ${pageCount}`, pageWidth - 25, pageHeight - 10);
+    const dh = new Date().toLocaleDateString('pt-BR') + ' às ' + new Date().toLocaleTimeString('pt-BR');
+    doc.setFontSize(10);
+    doc.text(`Gerado em: ${dh}`, pageWidth - margin - 5, 35, {align:'right'});
+  }
+  function footer() {
+    const pageCount = doc.internal.getNumberOfPages();
+    const pageNum   = doc.internal.getCurrentPageInfo().pageNumber;
+    doc.setFontSize(10);
+    doc.setTextColor(100,100,100);
+    doc.text('© ' + new Date().getFullYear() + ' - SYSADMCOM', pageWidth/2, footerY, {align:'center'});
+    doc.setTextColor(150,150,150);
+    doc.text(`Página ${pageNum} de ${pageCount}`, pageWidth - 25, pageHeight - 10);
+  }
+  function needPage(nextY) {
+    if (nextY > footerY - 20) {
+      footer();
+      doc.addPage();
+      header();
+      return 55;
+    }
+    return nextY;
   }
 
-  const agora2 = new Date();
-  doc.save(`Feedback_${(dados.nome || 'Operador').replace(/ /g, '_')}_${agora2.getTime()}.pdf`);
+  header();
+
+  // ---- DADOS DO OPERADOR ----
+  let y = 55;
+  doc.setTextColor(...primary);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(14);
+  doc.text('DADOS DO OPERADOR', margin, y);
+  doc.setDrawColor(...accent);
+  doc.setLineWidth(0.5);
+  doc.line(margin, y+3, margin+60, y+3);
+  y += 10;
+
+  doc.setFontSize(11);
+  doc.setTextColor(0,0,0);
+
+  function linhaRotuloValor(rotulo, valor, colValueX) {
+    y = needPage(y + lineH);
+    doc.setFont('helvetica','bold');  doc.text(rotulo, labelX, y);
+    doc.setFont('helvetica','normal');doc.text(valor,   colValueX, y);
+  }
+
+  linhaRotuloValor('Nome:',   val(dados.nome), valueX);
+  linhaRotuloValor('Loja:',   val(dados.loja), valueX);
+  linhaRotuloValor('E-mail:', val(dados.email), valueX);
+  linhaRotuloValor('Código:', val(dados.codigo), valueX);
+  y += 5;
+
+  // ---- DETALHES DO FEEDBACK ----
+  y = needPage(y + lineH);
+  doc.setTextColor(...primary);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(14);
+  doc.text('DETALHES DO FEEDBACK', margin, y);
+  doc.setDrawColor(...accent);
+  doc.line(margin, y+3, margin+70, y+3);
+  y += 10;
+
+  doc.setFontSize(11);
+  doc.setTextColor(0,0,0);
+  linhaRotuloValor('Plataforma:', val(dados.plataforma,'N/A'), valueXDetails);
+  linhaRotuloValor('Módulo:',     val(dados.modulo,'N/A'),     valueXDetails);
+  linhaRotuloValor('Categoria:',  valNA(dados.categoria),      valueXDetails);
+  linhaRotuloValor('Submenu:',    valNA(dados.submenu),        valueXDetails);
+  y += 5;
+
+  // ---- FEEDBACK (caixa com wrap e quebra) ----
+  y = needPage(y + lineH);
+  doc.setTextColor(...primary);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(14);
+  doc.text('FEEDBACK', margin, y);
+  doc.setDrawColor(...accent);
+  doc.line(margin, y+3, margin+40, y+3);
+  y += 10;
+
+  const text = val(dados.feedback, '');
+  const lines = doc.splitTextToSize(text, contentWidth - 10);
+  let idx = 0;
+  while (idx < lines.length) {
+    // calcula quantas linhas cabem nesta página
+    const maxLines = Math.floor((footerY - 30 - y) / 6); // 6 ~ altura real de linha 11pt
+    if (maxLines <= 0) {
+      footer();
+      doc.addPage();
+      header();
+      y = 55;
+    }
+    const take = Math.max(1, Math.min(maxLines, lines.length - idx));
+    const chunk = lines.slice(idx, idx + take);
+    const boxHeight = chunk.length * 6 + 10;
+
+    // caixa
+    doc.setFillColor(...light);
+    doc.rect(margin, y - 3, contentWidth, boxHeight, 'F');
+
+    // texto
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(11);
+    let ty = y;
+    for (const ln of chunk) {
+      doc.text(ln, margin + 5, ty);
+      ty += 6;
+    }
+    y = ty + 7; // espaço após a caixa
+    idx += take;
+  }
+
+  footer();
+
+  const now = new Date().getTime();
+  const file = `Feedback_${val(dados.nome,'Operador').replace(/\s+/g,'_')}_${now}.pdf`;
+  doc.save(file);
 }
 
 // ============================
