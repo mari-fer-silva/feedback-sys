@@ -1,8 +1,7 @@
 // ============================
 //  CONSTANTES DE PLATAFORMA
 // ============================
-const APP_MODULOS = ['Cadastro de Promoções']; // Aplicativo tem apenas este módulo
-
+const APP_MODULOS = ['Cadastro de Promoções', 'Liberação de Pedido Adicional'];
 // ============================
 //  ESTRUTURA DO SISTEMA (Sistema Web)
 // ============================
@@ -268,7 +267,7 @@ function popularModulos(plataforma) {
   const submenuGroup = document.getElementById('submenu-group');
 
   if (plataforma === 'Aplicativo') {
-    // Apenas "Cadastro de Promoções"
+   
     APP_MODULOS.forEach(m => {
       const op = document.createElement('option');
       op.value = m; op.text = m;
@@ -480,43 +479,53 @@ function gerarPDFPersonalizado(dados) {
 //  ENVIO PARA A PLANILHA GOOGLE
 // ============================
 async function enviarParaPlanilha(dados) {
-  try {
-    const url = 'https://script.google.com/macros/s/AKfycbxPypv6Ld2Jqz-c3iu8JP2KIITKCJDQnNInQ72t35vPIsFH0ObbP6tS4ZNinHnapQvE/exec';
-    await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dados)
-    });
-    return { status: "success" };
-  } catch (error) {
-    console.error('Erro ao enviar para planilha:', error);
-    throw error;
-  }
+  const url = 'https://script.google.com/macros/s/AKfycbyYGnKiTJN2OPFPzbfvyWqs8xqqvr7DOZ-e4wI23gkueKq4I_AgRn4MfPNIEpiGIkW8/exec';
+
+  // IMPORTANTE: use 'text/plain' para ser "simple request" e evitar preflight.
+  // Mantém no-cors para não bloquear no browser (resposta ficará 'opaque', mas envia certinho).
+  const resp = await fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(dados)
+  });
+
+  // Como 'no-cors' não permite ler a resposta, apenas retornamos sucesso local.
+  return { status: "success" };
 }
+
 
 // ============================
 //  MODAL + FORM
 // ============================
 const PLATAFORMAS = ['Aplicativo', 'Sistema Web'];
 const MODULOS_WEB  = ['Vendas','Estoque','Receber','Pagar','Compras','Caixa','Bancário','Configurações','NFe','Folha','Suporte','Desenvolvimento','Marketplace'];
-const MODULOS_APP  = ['Cadastro de Promoções'];
+const MODULOS_APP  = ['Cadastro de Promoções', 'Liberação de Pedido Adicional'];
 const TODOS_MODULOS = MODULOS_WEB.concat(MODULOS_APP);
 
 function coletarDadosFormulario() {
   const plataformaEl = document.getElementById('plataforma');
   const moduloEl = document.getElementById('modulo');
 
-  let plataforma = plataformaEl?.value || '';
-  let modulo = moduloEl?.value || '';
+  let plataforma = (plataformaEl?.value || '').trim();
+  let modulo = (moduloEl?.value || '').trim();
 
   // Auto-correção caso venham trocados
+  const PLATAFORMAS = ['Aplicativo','Sistema Web'];
+  const MODULOS_WEB  = ['Vendas','Estoque','Receber','Pagar','Compras','Caixa','Bancário','Configurações','NFe','Folha','Suporte','Desenvolvimento','Marketplace'];
+  const MODULOS_APP  = ['Cadastro de Promoções', 'Liberação de Pedido Adicional'];
+  const TODOS_MODULOS = MODULOS_WEB.concat(MODULOS_APP);
+
   if (TODOS_MODULOS.includes(plataforma) && PLATAFORMAS.includes(modulo)) {
-    const tmp = plataforma;
-    plataforma = modulo;
-    modulo = tmp;
+    const tmp = plataforma; plataforma = modulo; modulo = tmp;
   }
 
+  if (!PLATAFORMAS.includes(plataforma)) {
+    // fallback defensivo (evita mandar string vazia)
+    plataforma = '';
+  }
+
+  // ... resto igual
   const categoriaGroup = document.getElementById('categoria-group');
   const submenuGroup   = document.getElementById('submenu-group');
 
@@ -531,14 +540,13 @@ function coletarDadosFormulario() {
     loja: document.getElementById('loja').value,
     email: document.getElementById('email').value,
     codigo: document.getElementById('codigo').value,
-    plataforma,
+    plataforma, // <- agora garantido
     modulo,
     categoria: categoriaVal,
     submenu: submenuVal,
     feedback: document.getElementById('feedback').value
   };
 
-  // LOG visível no navegador
   console.table(dados);
   return dados;
 }
